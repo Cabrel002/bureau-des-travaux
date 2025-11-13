@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Obtenez le Label | Bureau des Travaux</title>
+
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #f5f9f7;
+      margin: 0;
+      color: #1e293b;
+    }
+
+    /* === HERO EN-TÊTE BLEU === */
+    .hero-label {
+      background: linear-gradient(180deg, #1E3A8A, #1e40af);
+      color: white;
+      text-align: center;
+      padding: 60px 20px 80px;
+    }
+    .hero-label h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      font-weight: 800;
+    }
+    .hero-label p {
+      font-size: 1.1rem;
+      max-width: 720px;
+      margin: 0 auto;
+      opacity: 0.9;
+      line-height: 1.6;
+    }
+
+    /* === SECTION INTRO AVANT FORMULAIRE === */
+    .intro {
+      background: #ffffff;
+      max-width: 950px;
+      margin: -50px auto 40px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      padding: 40px 50px;
+      position: relative;
+      z-index: 2;
+    }
+    .intro h2 {
+      color: #1E3A8A;
+      font-size: 1.4rem;
+      border-left: 5px solid #22c55e;
+      padding-left: 12px;
+      margin-bottom: 20px;
+    }
+    .intro ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 25px 0;
+    }
+    .intro ul li {
+      background: #f0fdf4;
+      border-left: 4px solid #22c55e;
+      padding: 10px 14px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      color: #14532d;
+    }
+
+    /* === FORMULAIRE === */
+    main {
+      max-width: 950px;
+      margin: 0 auto 80px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      padding: 40px 50px;
+    }
+    h3 {
+      color: #1E3A8A;
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 1.5rem;
+    }
+    label {
+      display: block;
+      font-weight: 600;
+      margin-top: 18px;
+      color: #1e293b;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      margin-top: 8px;
+      font-size: 1rem;
+      box-sizing: border-box;
+    }
+    input[type="file"] {
+      border: 1px dashed #a3a3a3;
+      background: #f9fafb;
+      cursor: pointer;
+    }
+
+    .subsection {
+      margin-top: 40px;
+      padding: 25px 30px;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      background: #f9fafb;
+    }
+    .subsection h4 {
+      color: #1E3A8A;
+      border-bottom: 2px solid #22c55e;
+      padding-bottom: 6px;
+      margin-bottom: 20px;
+    }
+
+    /* === BOUTON === */
+    button {
+      display: block;
+      background: linear-gradient(180deg, #16a34a, #22c55e);
+      color: white;
+      border: none;
+      padding: 14px 40px;
+      border-radius: 999px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      margin: 40px auto 0;
+      box-shadow: 0 8px 22px rgba(34,197,94,0.35);
+      transition: all .25s ease;
+    }
+    button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(34,197,94,0.45);
+    }
+
+    .confirmation {
+      display: none;
+      margin-top: 30px;
+      padding: 15px 25px;
+      background: #dcfce7;
+      color: #166534;
+      border: 1px solid #16a34a;
+      border-radius: 12px;
+      text-align: center;
+      font-weight: 600;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 🟦 HERO -->
+  <section class="hero-label">
+    <h1>Êtes-vous entrepreneur ? Obtenez notre label de confiance</h1>
+    <p>
+      Démarquez votre entreprise grâce au <strong>Label Bureau des Travaux</strong> —
+      un gage de sérieux, de qualité et de transparence dans le secteur du BTP.
+    </p>
+  </section>
+
+  <!-- 🧱 INTRODUCTION -->
+  <section class="intro">
+    <h2>Pourquoi obtenir le label ?</h2>
+    <ul>
+      <li>✅ Gagnez la confiance des clients au Cameroun et en Europe.</li>
+      <li>📋 Faites partie d’un réseau d’entreprises certifiées.</li>
+      <li>📸 Valorisez vos réalisations auprès de la diaspora.</li>
+      <li>🤝 Accédez à des opportunités de projets encadrés.</li>
+    </ul>
+
+    <h2>Comment ça fonctionne ?</h2>
+    <p>
+      Remplissez le formulaire ci-dessous et joignez vos documents.
+      Notre équipe analysera votre dossier et vous contactera sous 48h pour finaliser votre labellisation.
+    </p>
+  </section>
+
+  <!-- 📋 FORMULAIRE -->
+  <main>
+    <form id="labelForm">
+      <h3>Formulaire de candidature au Label</h3>
+
+      <label>Nom de l’entreprise</label>
+      <input type="text" required />
+
+      <label>Raison sociale</label>
+      <input type="text" required />
+
+      <label>Ville</label>
+      <select required>
+        <option value="">Choisir une ville</option>
+        <option>Douala</option>
+        <option>Yaoundé</option>
+        <option>Bafoussam</option>
+      </select>
+
+      <label>Email professionnel</label>
+      <input type="email" required />
+
+      <label>Téléphone</label>
+      <input type="tel" required />
+
+      <div class="subsection">
+        <h4>Documents obligatoires</h4>
+        <label>📄 RCCM ou registre du commerce</label>
+        <input type="file" accept=".pdf,.jpg,.png,.docx" required />
+
+        <label>💼 Patente fiscale / Numéro contribuable</label>
+        <input type="file" accept=".pdf,.jpg,.png,.docx" required />
+
+        <label>🛡️ Assurance chantier / Responsabilité civile</label>
+        <input type="file" accept=".pdf,.jpg,.png,.docx" required />
+
+        <label>📸 Photos de chantiers réalisés</label>
+        <input type="file" accept=".jpg,.png,.jpeg" multiple required />
+      </div>
+
+      <div class="subsection">
+        <h4>Documents facultatifs</h4>
+        <label>📃 Références clients</label>
+        <input type="file" accept=".pdf,.jpg,.png,.docx" />
+
+        <label>🏅 Attestations de bonne exécution</label>
+        <input type="file" accept=".pdf,.jpg,.png,.docx" />
+      </div>
+
+      <button type="submit">Soumettre ma demande</button>
+
+      <div class="confirmation">
+        ✅ Merci ! Votre dossier sera examiné sous 48h.<br>
+        Vous recevrez une confirmation à l’adresse e-mail indiquée.
+      </div>
+    </form>
+  </main>
+
+  <script>
+    const form = document.getElementById("labelForm");
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      document.querySelector(".confirmation").style.display = "block";
+      form.reset();
+      window.scrollTo({ top: form.offsetTop, behavior: "smooth" });
+    });
+  </script>
+</body>
+</html>

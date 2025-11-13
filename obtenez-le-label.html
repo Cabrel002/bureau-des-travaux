@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Obtenez le Label | Le Bureau des Travaux</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body { background: #f7f9ff; font-family: "Segoe UI", Arial, sans-serif; color: #1e293b; margin: 0; }
+
+    .label-hero {
+      background: linear-gradient(120deg, #1e3a8a, #27429f);
+      color: #fff;
+      text-align: center;
+      padding: 80px 20px 100px;
+    }
+    .label-hero h1 {
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+    .label-hero p {
+      font-size: 1.1rem;
+      opacity: 0.95;
+      margin-bottom: 30px;
+    }
+    .label-hero .cta {
+      background: linear-gradient(180deg, #ff8c42, #ff9f61);
+      color: #fff;
+      font-weight: 700;
+      border: none;
+      border-radius: 999px;
+      padding: 14px 36px;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(255,140,66,0.35);
+      transition: all 0.25s ease;
+    }
+    .label-hero .cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(255,140,66,0.45);
+    }
+
+    .section { width: min(1100px, 92%); margin: 0 auto; padding: 70px 0; }
+    .section h2 {
+      color: #1e3a8a;
+      font-size: 1.8rem;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 16px;
+    }
+    .section p { text-align: center; font-size: 1.05rem; color: #334155; }
+
+    .criteria {
+      margin-top: 40px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .criteria div {
+      background: #fff;
+      border: 1px solid #e5e9f2;
+      border-radius: 14px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+      padding: 22px 18px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    .criteria div:hover { transform: translateY(-4px); box-shadow: 0 10px 22px rgba(0,0,0,0.08); }
+    .criteria h3 { color: #1e3a8a; font-size: 1.1rem; margin-bottom: 8px; }
+
+    .verify-box {
+      margin-top: 40px;
+      background: rgba(255,255,255,0.9);
+      border: 1px solid #e7ecf6;
+      border-radius: 16px;
+      padding: 40px;
+      text-align: center;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+    }
+    .verify-box input {
+      padding: 12px 16px;
+      border-radius: 999px;
+      border: 1px solid #cbd5e1;
+      outline: none;
+      width: 260px;
+      font-size: 1rem;
+    }
+    .verify-box button {
+      margin-left: 8px;
+      background: linear-gradient(180deg, #ff8c42, #ff9f61);
+      color: #fff;
+      font-weight: 700;
+      border: none;
+      border-radius: 999px;
+      padding: 12px 28px;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(255,140,66,0.3);
+      transition: all 0.25s ease;
+    }
+    .verify-box button:hover { transform: translateY(-2px); }
+    #verify-result { margin-top: 14px; font-weight: 600; }
+
+    .form-section {
+      background: #ffffff;
+      margin-top: 60px;
+      border-radius: 18px;
+      padding: 50px;
+      box-shadow: 0 8px 26px rgba(0,0,0,0.05);
+    }
+    form {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+    form input, form select, form textarea {
+      padding: 12px 16px;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-family: inherit;
+    }
+    form textarea { grid-column: 1 / -1; resize: vertical; }
+    .submit-btn {
+      grid-column: 1 / -1;
+      justify-self: center;
+      background: linear-gradient(180deg, #1e3a8a, #27429f);
+      color: #fff;
+      font-weight: 700;
+      border: none;
+      border-radius: 999px;
+      padding: 14px 36px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .submit-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(30,58,138,0.3); }
+
+    .final {
+      text-align: center;
+      margin-top: 60px;
+      color: #1e3a8a;
+      font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+      .form-section { padding: 30px; }
+      form input, form select { font-size: 0.95rem; }
+      .verify-box input { width: 90%; margin-bottom: 10px; }
+      .verify-box button { width: 100%; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 🟦 HERO -->
+  <section class="label-hero">
+    <h1>👷‍♂️ Vous êtes entrepreneur ?</h1>
+    <p>Obtenez le Label <strong>“Bureau des Travaux”</strong> et rejoignez notre réseau d’entreprises fiables et reconnues.</p>
+    <button class="cta" onclick="document.getElementById('verify').scrollIntoView({behavior:'smooth'})">Postuler pour le Label</button>
+  </section>
+
+  <!-- 💡 Pourquoi le Label -->
+  <section class="section">
+    <h2>Pourquoi obtenir le Label ?</h2>
+    <p>Valorisez votre professionnalisme, gagnez en visibilité et accédez à des projets certifiés par notre équipe d’experts.</p>
+
+    <div class="criteria">
+      <div><h3>🏗️ Crédibilité</h3><p>Montrez à vos clients que vous êtes une entreprise de confiance reconnue par des experts européens.</p></div>
+      <div><h3>📈 Opportunités</h3><p>Accédez à des projets locaux et internationaux issus de notre réseau diaspora et BTP.</p></div>
+      <div><h3>🔒 Sécurité</h3><p>Profitez d’un accompagnement contractuel et d’une meilleure protection juridique.</p></div>
+      <div><h3>🌍 Réseau</h3><p>Faites partie d’une communauté d’entrepreneurs labellisés à travers le Cameroun.</p></div>
+    </div>
+  </section>
+
+  <!-- 📋 Vérification d'éligibilité -->
+  <section class="section" id="verify">
+    <h2>Vérifiez votre éligibilité</h2>
+    <p>Entrez votre numéro d’agrément ou d’enregistrement pour vérifier votre statut avant de postuler.</p>
+    <div class="verify-box">
+      <input type="text" id="numero" placeholder="Numéro d’agrément..." />
+      <button onclick="verifier()">Vérifier</button>
+      <div id="verify-result"></div>
+    </div>
+  </section>
+
+  <!-- 🧱 Formulaire de candidature -->
+  <section class="section form-section">
+    <h2>Formulaire de candidature</h2>
+    <form>
+      <input type="text" placeholder="Nom de l’entreprise" required>
+      <input type="text" placeholder="Nom du responsable" required>
+      <input type="tel" placeholder="Téléphone" required>
+      <input type="email" placeholder="Adresse e-mail" required>
+      <input type="text" placeholder="Ville d’intervention" required>
+      <select required>
+        <option value="">Spécialité principale</option>
+        <option>Gros œuvre</option>
+        <option>Électricité</option>
+        <option>Plomberie</option>
+        <option>Finitions</option>
+        <option>Menuiserie</option>
+        <option>Autre</option>
+      </select>
+      <textarea placeholder="Décrivez brièvement vos réalisations ou votre expérience"></textarea>
+      <button type="submit" class="submit-btn">Soumettre ma demande</button>
+    </form>
+  </section>
+
+  <p class="final">📜 Le Bureau des Travaux – Votre partenaire qualité et transparence dans le BTP.</p>
+
+  <script>
+    function verifier(){
+      const val = document.getElementById('numero').value.trim();
+      const res = document.getElementById('verify-result');
+      if(val === "") {
+        res.style.color = "red";
+        res.innerText = "Veuillez entrer un numéro d’agrément.";
+        return;
+      }
+      // Exemple simple de simulation
+      const base = ["BTD-001", "DLA-102", "YDE-220", "BFM-304"];
+      if(base.includes(val.toUpperCase())){
+        res.style.color = "green";
+        res.innerText = "✅ Numéro reconnu. Vous pouvez poursuivre votre inscription.";
+      } else {
+        res.style.color = "red";
+        res.innerText = "❌ Numéro non reconnu. Contactez Le Bureau des Travaux pour validation manuelle.";
+      }
+    }
+  </script>
+</body>
+</html>

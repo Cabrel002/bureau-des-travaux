@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Je recherche une entreprise de construction</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .step { display: none; }
+    .step.active { display: block; }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-800 font-sans">
+
+  <!-- Container -->
+  <div class="min-h-screen flex flex-col justify-between">
+
+    <!-- Formulaire -->
+    <div class="max-w-2xl mx-auto p-6 bg-white shadow-lg rounded-lg mt-10">
+      <h1 class="text-2xl font-bold text-center mb-6">
+        Je recherche une entreprise de construction
+      </h1>
+
+      <form id="multiStepForm">
+        
+        <!-- ÉTAPE 1 -->
+        <div class="step active" id="step1">
+          <h2 class="text-lg font-semibold mb-4">1. Quel est votre projet ?</h2>
+          <div class="space-y-3">
+            <label class="block">
+              <input type="radio" name="projet" value="Construction neuve" class="mr-2"> Construction neuve
+            </label>
+            <label class="block">
+              <input type="radio" name="projet" value="Rénovation" class="mr-2"> Rénovation
+            </label>
+            <label class="block">
+              <input type="radio" name="projet" value="Extension" class="mr-2"> Extension
+            </label>
+          </div>
+          <div class="mt-6 text-right">
+            <button type="button" onclick="nextStep(1)" class="bg-blue-600 text-white px-4 py-2 rounded-lg">Suivant →</button>
+          </div>
+        </div>
+
+        <!-- ÉTAPE 2 -->
+        <div class="step" id="step2">
+          <h2 class="text-lg font-semibold mb-4">2. Quel est le type de bien ?</h2>
+          <div class="space-y-3">
+            <label class="block">
+              <input type="radio" name="bien" value="Maison individuelle" class="mr-2"> Maison individuelle
+            </label>
+            <label class="block">
+              <input type="radio" name="bien" value="Immeuble" class="mr-2"> Immeuble
+            </label>
+            <label class="block">
+              <input type="radio" name="bien" value="Bien professionnel" class="mr-2"> Bien professionnel
+            </label>
+            <label class="block">
+              <input type="radio" name="bien" value="Autre" class="mr-2"> Autre
+            </label>
+          </div>
+          <div class="mt-6 flex justify-between">
+            <button type="button" onclick="prevStep(2)" class="bg-gray-300 px-4 py-2 rounded-lg">← Précédent</button>
+            <button type="button" onclick="nextStep(2)" class="bg-blue-600 text-white px-4 py-2 rounded-lg">Suivant →</button>
+          </div>
+        </div>
+
+        <!-- ÉTAPE 3 -->
+        <div class="step" id="step3">
+          <h2 class="text-lg font-semibold mb-4">3. Quelle est la surface estimée ?</h2>
+          <div class="space-y-3">
+            <label class="block">
+              <input type="radio" name="surface" value="Moins de 100 m²" class="mr-2"> Moins de 100 m²
+            </label>
+            <label class="block">
+              <input type="radio" name="surface" value="100 - 200 m²" class="mr-2"> 100 - 200 m²
+            </label>
+            <label class="block">
+              <input type="radio" name="surface" value="Plus de 200 m²" class="mr-2"> Plus de 200 m²
+            </label>
+          </div>
+          <div class="mt-6 flex justify-between">
+            <button type="button" onclick="prevStep(3)" class="bg-gray-300 px-4 py-2 rounded-lg">← Précédent</button>
+            <button type="button" onclick="nextStep(3)" class="bg-blue-600 text-white px-4 py-2 rounded-lg">Suivant →</button>
+          </div>
+        </div>
+
+        <!-- ÉTAPE 4 -->
+        <div class="step" id="step4">
+          <h2 class="text-lg font-semibold mb-4">4. Vos coordonnées</h2>
+          <div class="space-y-4">
+            <input type="text" name="nom" placeholder="Nom complet" class="w-full border rounded-lg px-3 py-2">
+            <input type="email" name="email" placeholder="Adresse email" class="w-full border rounded-lg px-3 py-2">
+            <input type="tel" name="telephone" placeholder="Téléphone" class="w-full border rounded-lg px-3 py-2">
+            <input type="text" name="ville" placeholder="Ville" class="w-full border rounded-lg px-3 py-2">
+          </div>
+          <div class="mt-6 flex justify-between">
+            <button type="button" onclick="prevStep(4)" class="bg-gray-300 px-4 py-2 rounded-lg">← Précédent</button>
+            <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded-lg">Envoyer</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white text-center py-4 mt-10">
+      <p class="text-sm">Le Bureau des Travaux - Votre partenaire de confiance pour la sélection et le suivi d’entreprises de construction.</p>
+    </footer>
+  </div>
+
+  <!-- Script étapes -->
+  <script>
+    let currentStep = 1;
+    function showStep(step) {
+      document.querySelectorAll('.step').forEach((el) => el.classList.remove('active'));
+      document.getElementById('step' + step).classList.add('active');
+    }
+    function nextStep(step) { showStep(step + 1); }
+    function prevStep(step) { showStep(step - 1); }
+
+    document.getElementById("multiStepForm").addEventListener("submit", function(e){
+      e.preventDefault();
+      alert("Votre demande a bien été envoyée ! Nous vous contacterons rapidement.");
+    });
+  </script>
+
+</body>
+</html>

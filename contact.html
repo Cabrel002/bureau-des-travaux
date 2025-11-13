@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact | Le Bureau des Travaux</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body { background: #f5f8ff; font-family: "Segoe UI", Arial, sans-serif; color: #1e293b; margin: 0; }
+
+    .header {
+      position: fixed; top: 0; left: 0; right: 0;
+      background: white; border-bottom: 3px solid #FF8C42;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 12px 25px; z-index: 1000;
+    }
+    .brand__title { font-size: 1.2rem; font-weight: 800; color: #1E3A8A; }
+    .btn-chip { background: #1E3A8A; color: white; text-decoration: none;
+      padding: 10px 20px; border-radius: 999px; font-weight: 600; margin-left: 8px;
+      transition: all 0.3s ease;
+    }
+    .btn-chip:hover { background: #FF8C42; transform: translateY(-2px); }
+
+    main { max-width: 960px; margin: 140px auto 80px; background: white;
+      padding: 50px; border-radius: 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+    }
+
+    h1 { color: #1E3A8A; font-size: 1.9rem; margin-bottom: 10px; text-align:center; }
+    p.subtitle { color: #475569; text-align:center; margin-bottom: 40px; }
+
+    form { display: grid; gap: 18px; }
+    .form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 18px; }
+    .field { display: flex; flex-direction: column; gap: 6px; }
+    label { font-weight: 600; color: #1e3a8a; }
+    input, select, textarea {
+      padding: 10px 12px; border-radius: 8px; border: 1px solid #cbd5e1;
+      background: #f9fafb; transition: border 0.2s ease;
+    }
+    input:focus, select:focus, textarea:focus { border-color: #22c55e; outline: none; }
+    textarea { resize: vertical; min-height: 100px; }
+
+    .submit-btn {
+      background: linear-gradient(180deg, #22c55e, #16a34a);
+      color: #fff; font-weight: 700; border: none; border-radius: 10px;
+      padding: 14px 24px; cursor: pointer; transition: all 0.25s ease;
+      width: fit-content; margin: 15px auto 0; display: block;
+    }
+    .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(34,197,94,0.35); }
+    .shaking { animation: shake 0.4s; }
+    @keyframes shake {
+      0%,100% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      75% { transform: translateX(5px); }
+    }
+
+    /* Pop-up de confirmation */
+    .popup {
+      position: fixed; inset: 0; display: flex; justify-content: center; align-items: center;
+      background: rgba(0,0,0,0.5); visibility: hidden; opacity: 0; transition: all 0.3s ease;
+    }
+    .popup.active { visibility: visible; opacity: 1; }
+    .popup-content {
+      background: white; padding: 35px 45px; border-radius: 18px; text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2); transform: scale(0.8); transition: transform 0.3s ease;
+    }
+    .popup.active .popup-content { transform: scale(1); }
+    .popup h3 { color: #1E3A8A; margin-bottom: 10px; }
+
+    /* === VOTRE PROJET === */
+    .project-card{
+      background: rgba(255,255,255,0.96);
+      border: 1px solid #e7ecf6;
+      border-radius: 16px;
+      padding: 18px;
+      box-shadow: 0 8px 24px rgba(0,0,0,.05);
+    }
+    .project-title{ color:#1E3A8A; font-size:1.15rem; font-weight:800; margin-bottom:4px; }
+    .project-sub{ color:#4b5563; margin-bottom:12px; }
+    .project-ctx{ display:flex; gap:10px; flex-wrap: wrap; }
+    .radio-pill{
+      display:inline-flex; align-items:center; gap:8px;
+      border:1px solid #e6ecfa; border-radius:999px;
+      padding:8px 12px; background:#f9fbff; cursor:pointer;
+      user-select:none; transition: background .2s ease, box-shadow .2s ease;
+    }
+    .radio-pill input{ accent-color:#FF8C42; }
+    .radio-pill:hover{ background:#fff; box-shadow: 0 6px 16px rgba(0,0,0,.06); }
+    .subblock{ margin-top:12px; padding-top:10px; border-top:1px dashed rgba(0,0,0,.08); animation: fadeIn .28s ease both; }
+    .hidden{ display:none; }
+
+    @keyframes fadeIn{ from{opacity:0;transform:translateY(6px);} to{opacity:1;transform:translateY(0);} }
+
+    /* Bouton WhatsApp flottant */
+    .whatsapp-float {
+      position: fixed; right: 20px; bottom: 25px;
+      background: #25d366; color: white;
+      border-radius: 50%; width: 58px; height: 58px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem; box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      transition: all 0.25s ease; z-index: 2000;
+    }
+    .whatsapp-float:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(0,0,0,0.3); }
+
+    @media (max-width:768px){ main{margin:120px 20px 60px;padding:30px;} }
+/* === Apparition fluide du formulaire === */
+main {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInForm 0.8s ease forwards;
+}
+
+@keyframes fadeInForm {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+  </style>
+</head>
+
+<body>
+  <!-- 🟧 HEADER -->
+  <header class="header">
+    <div class="brand">
+      <img src="logo.png" alt="Logo Bureau des Travaux" class="brand__logo" height="55">
+      <h1 class="brand__title">Bureau des Travaux</h1>
+    </div>
+    <nav>
+      <a href="index.html" class="btn-chip">Accueil</a>
+      <a href="quisommesnous2.html" class="btn-chip">Qui sommes-nous</a>
+      <a href="blog.html" class="btn-chip">Blog</a>
+      <a href="contact.html" class="btn-chip active">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Contactez-nous</h1>
+    <p class="subtitle">Parlez-nous de votre projet — nous vous répondons rapidement.</p>
+
+    <form id="contactForm">
+      <div class="form-grid">
+        <div class="field"><label for="name">Nom complet *</label><input id="name" required></div>
+        <div class="field"><label for="phone">Téléphone / WhatsApp *</label><input id="phone" required></div>
+        <div class="field"><label for="city">Ville / Localisation du projet *</label>
+          <select id="city" required>
+            <option value="">— Sélectionnez —</option>
+            <option>Douala</option><option>Yaoundé</option><option>Bafoussam</option><option>Autre</option>
+          </select>
+        </div>
+        <div class="field"><label for="subject">Type de demande *</label>
+          <select id="subject" required>
+            <option value="">— Sélectionnez —</option>
+            <option>Je cherche un entrepreneur</option>
+            <option>Je veux un devis</option>
+            <option>Je souhaite un accompagnement</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- === VOTRE PROJET (bloc intelligent) === -->
+      <div class="project-card col-span-2">
+        <h3 class="project-title">Votre projet</h3>
+        <p class="project-sub">Répondez en 2–3 clics — on s’adapte à votre situation.</p>
+
+        <div class="field">
+          <label><strong>Avez-vous déjà un terrain ou un bien existant ? *</strong></label>
+          <div class="project-ctx">
+            <label class="radio-pill"><input type="radio" name="project_ctx" value="terrain" required><span>J’ai un terrain</span></label>
+            <label class="radio-pill"><input type="radio" name="project_ctx" value="renovation" required><span>J’ai un bien à rénover</span></label>
+            <label class="radio-pill"><input type="radio" name="project_ctx" value="no_land" required><span>Je n’ai pas encore de terrain</span></label>
+          </div>
+        </div>
+
+        <div id="hasLandFields" class="subblock hidden">
+          <div class="form-grid">
+            <div class="field"><label>Superficie du terrain (m²) *</label><input id="area" name="area" type="number" placeholder="Ex. 400"></div>
+            <div class="field"><label>Plan d’architecte *</label>
+              <select id="hasPlan"><option value="">— Choisir —</option><option>Oui</option><option>Non</option></select>
+            </div>
+          </div>
+        </div>
+
+        <div id="renovationFields" class="subblock hidden">
+          <div class="form-grid">
+            <div class="field"><label>Type de bien *</label>
+              <select id="renoType"><option value="">— Choisir —</option><option>Maison</option><option>Appartement</option><option>Immeuble</option></select>
+            </div>
+            <div class="field"><label>État général *</label>
+              <select id="condition"><option value="">— Choisir —</option><option>Bon</option><option>Moyen</option><option>Dégradé</option></select>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="field"><label>Budget estimatif (optionnel)</label><input id="budget" placeholder="Ex. 25–35 M FCFA / 40–60 k€"></div>
+          <div class="field"><label>Quand souhaitez-vous démarrer ? *</label>
+            <select id="start" required><option value="">— Choisir —</option><option>Immédiatement</option><option>Dans 1 à 3 mois</option><option>Dans 3 à 6 mois</option><option>Plus tard</option></select>
+          </div>
+          <div class="field col-span-2"><label>Mode de contact préféré *</label>
+            <select id="contactPref" required><option value="">— Choisir —</option><option>WhatsApp</option><option>E-mail</option><option>Appel téléphonique</option></select>
+          </div>
+        </div>
+      </div>
+
+      <div class="field col-span-2"><label for="message">Message (facultatif)</label><textarea id="message" placeholder="Ajoutez quelques détails..."></textarea></div>
+      <button type="submit" class="submit-btn">Envoyer</button>
+    </form>
+  </main>
+
+  <!-- ✅ Pop-up confirmation -->
+  <div id="popup" class="popup">
+    <div class="popup-content">
+      <h3>✅ Message envoyé !</h3>
+      <p>Merci pour votre confiance. Nous vous répondrons rapidement.</p>
+    </div>
+  </div>
+
+  <!-- ☎️ Bouton WhatsApp flottant -->
+  <a href="https://wa.me/237694025358?text=Bonjour,+je+viens+du+site+Le+Bureau+des+Travaux."
+     class="whatsapp-float" target="_blank" title="Discuter sur WhatsApp">💬</a>
+
+  <script>
+    const form = document.getElementById('contactForm');
+    const submitBtn = document.querySelector('.submit-btn');
+    const popup = document.getElementById('popup');
+
+    // === Logique dynamique "Votre projet" ===
+    const ctxRadios = document.querySelectorAll('input[name="project_ctx"]');
+    const hasLand = document.getElementById('hasLandFields');
+    const reno = document.getElementById('renovationFields');
+    const area = document.getElementById('area');
+    const hasPlan = document.getElementById('hasPlan');
+    const renoType = document.getElementById('renoType');
+    const conditionSel = document.getElementById('condition');
+    const startSel = document.getElementById('start');
+    const contactPref = document.getElementById('contactPref');
+
+    function setRequired(el, yes){ if(!el)return; yes?el.setAttribute('required',''):el.removeAttribute('required'); }
+
+    function updateProjectBlocks(){
+      let val = [...ctxRadios].find(r=>r.checked)?.value || '';
+      hasLand.classList.add('hidden'); reno.classList.add('hidden');
+      setRequired(area,false); setRequired(hasPlan,false);
+      setRequired(renoType,false); setRequired(conditionSel,false);
+      if(val==='terrain'){ hasLand.classList.remove('hidden'); setRequired(area,true); setRequired(hasPlan,true); }
+      else if(val==='renovation'){ reno.classList.remove('hidden'); setRequired(renoType,true); setRequired(conditionSel,true); }
+    }
+    ctxRadios.forEach(r=>r.addEventListener('change',updateProjectBlocks));
+
+    // === Soumission avec vibration + pop-up ===
+    form.addEventListener('submit',(e)=>{
+      e.preventDefault();
+      submitBtn.classList.add('shaking');
+      setTimeout(()=>submitBtn.classList.remove('shaking'),400);
+      popup.classList.add('active');
+      setTimeout(()=>popup.classList.remove('active'),4000);
+      form.reset();
+      hasLand.classList.add('hidden');
+      reno.classList.add('hidden');
+    });
+  </script>
+</body>
+</html>

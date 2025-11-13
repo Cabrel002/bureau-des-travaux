@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blog | Le Bureau des Travaux</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* === SECTION BLOG PREMIUM === */
+    .blog-section {
+      background: #eef3ff;
+      padding: 80px 0 100px;
+    }
+    .blog-container {
+      width: min(1200px, 94%);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 35px;
+      flex-wrap: wrap;
+    }
+
+    .blog-card {
+      flex: 1 1 30%;
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 18px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+      padding: 40px 35px 70px;
+      box-sizing: border-box;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .blog-card h3 {
+      color: #1E3A8A;
+      font-size: 1.4rem;
+      font-weight: 800;
+      text-align: left;
+      margin-bottom: 10px;
+    }
+    .underline {
+      height: 4px;
+      width: 80px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #FF8C42, #ffad73);
+      margin-bottom: 18px;
+    }
+
+    .blog-content p {
+      color: #2f3442;
+      text-align: justify;
+      margin-bottom: 12px;
+      line-height: 1.7;
+    }
+
+    /* Flèche orange ronde */
+    .blog-next {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      border: none;
+      background: linear-gradient(180deg, #FF8C42, #ff9f61);
+      color: #fff;
+      font-size: 1.4rem;
+      font-weight: bold;
+      box-shadow: 0 6px 18px rgba(255,140,66,0.35);
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+    .blog-next:hover {
+      transform: translateX(-50%) translateY(-3px);
+      box-shadow: 0 10px 24px rgba(255,140,66,0.45);
+      filter: brightness(1.08);
+    }
+
+    /* Transitions */
+    .fade-out { animation: fadeOut .25s ease forwards; }
+    .fade-in { animation: fadeIn .35s ease forwards; }
+
+    @keyframes fadeOut {
+      from { opacity: 1; transform: translateY(0); }
+      to { opacity: 0; transform: translateY(8px); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive */
+    @media (max-width: 992px){
+      .blog-container { flex-direction: column; align-items: center; }
+      .blog-card { width: 90%; margin-bottom: 35px; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header__inner">
+      <div class="brand">
+        <img src="logo.png" alt="Logo Bureau des Travaux" class="brand__logo" />
+        <h1 class="brand__title">Bureau des Travaux</h1>
+      </div>
+
+      <nav class="nav">
+        <a href="index.html" class="btn-chip">Accueil</a>
+        <a href="quisommesnous.html" class="btn-chip">Qui sommes-nous</a>
+        <a href="blog.html" class="btn-chip active">Blog</a>
+        <a href="contact.html" class="btn-chip">Contact</a>
+        <a href="label.html" class="btn-chip">Label</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero hero--small" style="--hero-image:url('photo5.jpg')">
+    <div class="hero__content">
+      <h2>Notre Blog</h2>
+      <p>Retours d’expériences, conseils et analyses pour mieux comprendre le monde du chantier.</p>
+    </div>
+  </section>
+
+  <!-- 🟦 BLOG PREMIUM -->
+  <section class="blog-section">
+    <div class="blog-container">
+
+      <!-- Bloc 1 : Techniques -->
+      <article class="blog-card" data-cat="tech">
+        <h3>🧱 Techniques & Chantiers</h3>
+        <div class="underline"></div>
+        <div class="blog-content" data-index="0"></div>
+        <button class="blog-next">⟶</button>
+      </article>
+
+      <!-- Bloc 2 : Budget -->
+      <article class="blog-card" data-cat="budget">
+        <h3>💰 Budget & Devis</h3>
+        <div class="underline"></div>
+        <div class="blog-content" data-index="0"></div>
+        <button class="blog-next">⟶</button>
+      </article>
+
+      <!-- Bloc 3 : Distance -->
+      <article class="blog-card" data-cat="distance">
+        <h3>🌍 Clients à Distance</h3>
+        <div class="underline"></div>
+        <div class="blog-content" data-index="0"></div>
+        <button class="blog-next">⟶</button>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer-pro fade-in">
+    <div class="footer-top">
+      <h3>Discutons de votre projet</h3>
+      <p>Que vous soyez au Cameroun ou à l’étranger, notre équipe est prête à vous accompagner dans votre projet de construction ou de rénovation.</p>
+      <div class="footer-actions">
+        <a href="https://wa.me/237694025358" target="_blank" class="footer-icon whatsapp">💬</a>
+        <a href="tel:+237695255689" class="footer-icon phone">📞</a>
+        <a href="mailto:contact@lebureaudestravaux.com" class="footer-icon mail">📧</a>
+      </div>
+      <hr class="footer-line">
+      <p class="footer-slogan">Votre chantier en toute confiance.</p>
+    </div>
+
+    <div class="footer-bottom">
+      <p><strong>Le Bureau des Travaux</strong> — Douala • Yaoundé • Bafoussam</p>
+      <p>© 2025 Tous droits réservés</p>
+      <div class="footer-socials">
+        <a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Articles longs par catégorie
+    const articles = {
+      tech: [
+        {
+          title: "Bien gérer la préparation du chantier",
+          paras: [
+            "Une bonne préparation conditionne la réussite de tout projet. L’étude du sol, le choix des matériaux et la planification des interventions sont les premières garanties de durabilité.",
+            "Le Bureau des Travaux impose un protocole de contrôle avant démarrage : traçage, nivellement, implantation et vérification des accès. Chaque étape est validée avant de lancer les travaux.",
+            "Ce suivi rigoureux évite les reprises coûteuses et garantit une mise en œuvre conforme aux plans d’exécution."
+          ]
+        },
+        {
+          title: "Les erreurs courantes en maçonnerie",
+          paras: [
+            "Un mortier trop liquide, un temps de séchage non respecté ou une mauvaise verticalité peuvent compromettre toute la structure. Ces erreurs sont souvent invisibles au début, mais se manifestent plus tard par des fissures.",
+            "Nos techniciens encadrent les équipes et effectuent des contrôles réguliers de qualité et de sécurité, documentés par des rapports photographiques.",
+            "Chaque intervention est validée selon une check-list technique inspirée des standards européens."
+          ]
+        }
+      ],
+      budget: [
+        {
+          title: "Éviter les mauvaises surprises de devis",
+          paras: [
+            "Les écarts entre devis et réalité proviennent souvent de postes oubliés ou sous-estimés. Une analyse approfondie du contenu du devis permet d’éviter les surcoûts imprévus.",
+            "Nous accompagnons le client pour lire entre les lignes : quantités, unités, matériaux et conditions particulières. Ce travail en amont évite les discussions de fin de chantier.",
+            "Un devis bien structuré est la base d’un projet maîtrisé et d’une relation saine entre le client et l’entrepreneur."
+          ]
+        },
+        {
+          title: "Le bon prix n’est pas toujours le plus bas",
+          paras: [
+            "Un devis anormalement bas cache souvent des omissions ou des matériaux de moindre qualité. Il faut comparer les offres à prestations équivalentes, pas seulement au prix final.",
+            "Notre rôle est d’aider à identifier les entreprises sérieuses, dont les prix reflètent réellement la qualité et la durabilité des travaux.",
+            "L’objectif n’est pas de payer moins cher, mais de payer juste pour une exécution correcte et durable."
+          ]
+        }
+      ],
+      distance: [
+        {
+          title: "Suivre son chantier à distance en toute confiance",
+          paras: [
+            "Les clients expatriés redoutent les travaux mal exécutés en leur absence. Grâce à nos outils de suivi numérique, chaque étape est contrôlée et validée en temps réel.",
+            "Des rapports photo et vidéo sont transmis régulièrement, accompagnés de commentaires techniques clairs et compréhensibles.",
+            "Ce mode de travail offre une transparence totale et élimine le stress lié à la distance."
+          ]
+        },
+        {
+          title: "La communication, clé du succès à distance",
+          paras: [
+            "La réussite d’un projet à distance repose sur une communication fluide et planifiée. Chaque semaine, un rapport structuré et des réunions vidéo permettent de garder le contrôle.",
+            "Nos superviseurs locaux assurent la continuité de l’information entre les équipes de terrain et le client.",
+            "Ainsi, même à des milliers de kilomètres, le client reste décisionnaire à chaque étape clé."
+          ]
+        }
+      ]
+    };
+
+    // Injection des textes + rotation
+    function renderArticle(block, article) {
+      const html = `<h4>${article.title}</h4>${article.paras.map(p=>`<p>${p}</p>`).join("")}`;
+      block.innerHTML = html;
+    }
+
+    document.querySelectorAll(".blog-card").forEach(card => {
+      const cat = card.dataset.cat;
+      const content = card.querySelector(".blog-content");
+      renderArticle(content, articles[cat][0]);
+
+      card.querySelector(".blog-next").addEventListener("click", () => {
+        const current = parseInt(content.dataset.index || "0", 10);
+        const next = (current + 1) % articles[cat].length;
+
+        content.classList.add("fade-out");
+        setTimeout(() => {
+          renderArticle(content, articles[cat][next]);
+          content.dataset.index = next;
+          content.classList.remove("fade-out");
+          content.classList.add("fade-in");
+          setTimeout(()=>content.classList.remove("fade-in"),400);
+        }, 250);
+      });
+    });
+  </script>
+</body>
+</html>

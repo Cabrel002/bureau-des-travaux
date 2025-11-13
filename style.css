@@ -1,54 +1,50 @@
+/* ===========================
+   VARIABLES
+=========================== */
 
-/* === BUREAU DES TRAVAUX — CSS NETTOYÉ, OPTIMISÉ ET UNIFIÉ === */
-
-/* =============================
-   VARIABLES GLOBALES
-   ============================= */
 :root{
-  --brand-orange: #FF8C42;
-  --accent-blue: #1E3A8A;
-  --text: #1f2937;
-  --muted: #6b7280;
-  --light-bg: #f7f9fc;
-  --line: #e8ecf4;
+  --brand-orange:#FF8C42;
+  --accent-blue:#1E3A8A;
+  --text:#1f2937;
+  --muted:#6b7280;
+  --light-bg:#f7f9fc;
+  --line:#e8ecf4;
 
-  --hero-height: 480px;
-  --hero-image: url("photo5.jpg");
+  --radius-lg:18px;
+  --radius-md:14px;
+  --radius-sm:10px;
 
-  --radius-lg: 18px;
-  --radius-md: 14px;
-  --radius-sm: 10px;
-
-  --shadow-sm: 0 3px 10px rgba(0,0,0,.06);
-  --shadow-md: 0 8px 24px rgba(0,0,0,.08);
-  --shadow-lg: 0 12px 32px rgba(0,0,0,.12);
+  --shadow-sm:0 3px 10px rgba(0,0,0,.06);
+  --shadow-md:0 8px 24px rgba(0,0,0,.08);
+  --shadow-lg:0 12px 32px rgba(0,0,0,.12);
 }
 
-/* =============================
-   RESET + BASE
-   ============================= */
-*{ box-sizing: border-box; margin:0; padding:0; }
-html,body{ height:100%; overflow-x:hidden; }
+/* ===========================
+   RESET
+=========================== */
+
+*{margin:0;padding:0;box-sizing:border-box;}
 body{
-  font-family:"Inter", Arial, sans-serif;
-  background: var(--light-bg);
-  color: var(--text);
+  font-family:"Inter",sans-serif;
+  color:var(--text);
+  background:var(--light-bg);
   line-height:1.65;
   padding-top:110px;
-  -webkit-font-smoothing: antialiased;
 }
-img{ max-width:100%; display:block; }
-a{ text-decoration:none; color:inherit; }
-.container{ width:min(1180px, 92%); margin:auto; }
+img{max-width:100%;display:block;}
+a{text-decoration:none;color:inherit;}
+.container{width:min(1180px,92%);margin:auto;}
 
-/* =============================
-   HEADER
-   ============================= */
+/* ===========================
+   HEADER MODERNE
+=========================== */
+
 .header{
-  position:fixed; top:0; left:0; right:0;
+  position:fixed;
+  top:0;left:0;right:0;
   background:#fff;
   border-bottom:3px solid var(--brand-orange);
-  box-shadow: var(--shadow-sm);
+  box-shadow:var(--shadow-sm);
   z-index:1000;
 }
 .header__inner{
@@ -59,144 +55,142 @@ a{ text-decoration:none; color:inherit; }
   justify-content:space-between;
   padding:10px 0;
 }
-.brand{ display:flex; align-items:center; gap:10px; }
-.brand__logo{ height:50px; }
+
+/* LOGO */
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.brand__logo{height:50px;}
 .brand__title{
   font-size:1.25rem;
   font-weight:800;
   color:var(--accent-blue);
 }
 
-/* ===== MENU FIN ET RECTANGULAIRE ===== */
-.nav {
-  display: flex;
-  gap: 26px;
-}
+/* ===========================
+   MENU FIN ET MODERNE
+=========================== */
 
-.btn-chip {
-  text-decoration: none;
-  color: #1f3b83;
-  font-weight: 600;
-  padding: 6px 0;
-  border-radius: 0;
-  background: none;
-  box-shadow: none;
-  font-size: 0.95rem;
-  position: relative;
-  transition: 0.3s ease;
+.nav{
+  display:flex;
+  gap:26px;
 }
-
-.btn-chip::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -3px;
-  width: 0;
-  height: 2px;
-  background: var(--brand-orange);
-  transition: width 0.3s ease;
+.btn-chip{
+  position:relative;
+  padding:6px 0;
+  font-weight:600;
+  font-size:.95rem;
+  color:#1f3b83;
+  border-radius:0;
+  transition:.3s ease;
 }
-
-.btn-chip:hover {
-  color: var(--brand-orange);
+.btn-chip::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-3px;
+  height:2px;
+  width:0;
+  background:var(--brand-orange);
+  transition:.3s;
 }
+.btn-chip:hover{color:var(--brand-orange);}
+.btn-chip:hover::after{width:100%;}
+.btn-chip.active{color:var(--brand-orange);}
+.btn-chip.active::after{width:100%;}
 
-.btn-chip:hover::after {
-  width: 100%;
-}
+/* ===========================
+   LANG SWITCH MINIMAL
+=========================== */
 
-.btn-chip.active {
-  color: var(--brand-orange);
-}
-
-.btn-chip.active::after {
-  width: 100%;
-}
-
-/* ==== LANG SWITCH ==== */
 .lang-switch{
-  display:flex; align-items:center; gap:6px;
+  display:flex;
+  align-items:center;
+  gap:6px;
   font-weight:600;
 }
-.lang{ transition:0.3s; }
-.lang:hover{ color:var(--brand-orange); transform:scale(1.05); }
-.lang.active{ color:var(--brand-orange); }
-.sep{ color:#bbb; }
+.lang{transition:.3s;}
+.lang:hover{color:var(--brand-orange);transform:scale(1.05);}
+.lang.active{color:var(--brand-orange);}
 
-/* =============================
-   HERO SECTION — version corrigée, voile léger + pas de rectangle noir
-   ============================= */
+/* ===========================
+   HERO CLAIR — VOILE LÉGER
+=========================== */
+
 .hero{
-  height:var(--hero-height);
-  background-image:var(--hero-image);
+  height:480px;
+  background-image:url("photo5.jpg");
   background-size:cover;
   background-position:center;
   position:relative;
-  overflow:hidden;
+  color:#fff;
 }
 
-/* 🔸 Voile léger (plus du tout noir) */
 .hero::before{
   content:"";
   position:absolute;
   inset:0;
   background:linear-gradient(
     180deg,
-    rgba(0,0,0,0.18) 0%,   /* voile très léger */
-    rgba(0,0,0,0.28) 100%  /* contraste juste assez pour le blanc */
+    rgba(0,0,0,0.18),
+    rgba(0,0,0,0.28)
   );
   z-index:1;
 }
 
-/* 🔸 Texte sans rectangle noir, propre et lisible */
 .hero__content{
   position:absolute;
-  top:50%; left:50%; transform:translate(-50%,-50%);
-  padding:10px 20px;
-  background:transparent;
-  border-radius:0;
-  box-shadow:none;
-  color:#fff;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
   text-align:center;
   z-index:2;
+  color:#fff;
 }
 
 .hero__content h2{
   font-size:2.2rem;
   font-weight:800;
   margin-bottom:16px;
-  color:#ffffff;
   text-shadow:0 3px 8px rgba(0,0,0,0.45);
 }
 
-/* ============================= */
-   BLOC FIXE (Gauche sticky)
-   ============================= */
+/* ===========================
+   BLOC FIXE — ANCIEN CSS SAUF BUG
+=========================== */
+
 .bloc-fixe{
   display:flex;
+  align-items:flex-start;
+  justify-content:center;
   gap:34px;
-  width:min(1300px,94%);
-  margin:70px auto;
+  width:min(1400px,94%);
+  margin:60px auto 80px;
+  padding:40px;
   background:#fff;
   border-radius:var(--radius-lg);
-  padding:40px;
   box-shadow:var(--shadow-md);
 }
+
 .texte-fixe{
-  flex:0 0 40%;
-  position:sticky; top:130px;
+  flex:0 0 38%;
+  position:sticky;
+  top:120px;
   background:#f3f7ff;
   padding:28px;
   border-radius:var(--radius-lg);
   border:1px solid #e5e9f2;
   box-shadow:0 6px 16px rgba(31,59,138,.06);
 }
+
 .texte-fixe h2{
   font-size:1.4rem;
   color:var(--accent-blue);
-  margin-bottom:14px;
+  margin-bottom:12px;
 }
-.texte-fixe ul{ padding-left:20px; margin:10px 0; }
+
+.texte-fixe ul{padding-left:20px;margin:10px 0;}
 .quote{
   background:#FFF5EB;
   border-left:6px solid var(--brand-orange);
@@ -205,82 +199,735 @@ a{ text-decoration:none; color:inherit; }
   color:var(--accent-blue);
   font-weight:600;
 }
-.zone-scroll{ flex:1; padding-right:6px; }
 
-/* =============================
-   NOS SERVICES
-   ============================= */
-.nos-services{text-align:center; padding:40px 20px;}
-.nos-services h2{
-  font-size:1.6rem;
-  color:var(--accent-blue);
-  border-left:6px solid var(--brand-orange);
-  display:inline-block;
-  padding-left:12px;
-  margin-bottom:8px;
+.zone-scroll{
+  flex:1;
+  min-width:0;
+  overflow-y:auto;
+  padding-right:6px;
 }
-.subtitle{ color:#475063; margin-bottom:30px; }
+/* ====================================
+   🔶 SECTION : NOS SERVICES
+==================================== */
+
+.nos-services{
+  padding:56px 34px 46px;
+  text-align:center;
+  background:#ffffff;
+}
+
+.nos-services h2{
+  color:var(--accent-blue);
+  font-size:1.6rem;
+  margin-bottom:10px;
+  padding-left:12px;
+  border-left:6px solid var(--brand-orange);
+}
+
+.subtitle{
+  font-size:1.03rem;
+  color:#475063;
+  max-width:680px;
+  margin:10px auto 38px;
+}
+
 .services-container{
   display:flex;
   justify-content:center;
+  align-items:stretch;
   gap:20px;
   flex-wrap:wrap;
-}
-.service-card{
-  background:#fff;
-  flex:1 1 30%; max-width:300px;
-  border-radius:18px;
-  border:1px solid #e8edf7;
-  box-shadow:var(--shadow-sm);
-  overflow:hidden;
-  transition:0.3s;
-}
-.service-card img{ height:200px; object-fit:cover; }
-.service-card h3{
-  margin:16px 0 6px;
-  color:var(--accent-blue);
-}
-.service-card p{
-  padding:0 16px 24px;
-  color:#333;
-}
-.service-card:hover{
-  transform:translateY(-5px);
-  box-shadow:var(--shadow-md);
 }
 
-/* =============================
-   IMPLANTATIONS / MISSIONS / COMMENT ÇA MARCHE / TÉMOIGNAGES
-   ============================= */
-.carte-villes, .nos-missions, .comment-ca-marche, .temoignages{
-  padding:60px 20px;
-  background:#fff;
-}
-.section-title{
-  color:var(--accent-blue);
-  font-size:1.6rem;
-  margin-bottom:20px;
-  display:flex; align-items:center; gap:12px;
-}
-.bar{
-  width:6px; height:22px;
-  background:var(--brand-orange);
-  border-radius:6px;
-}
-.steps-grid, .temoignages-grid{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:20px;
-}
-.step-card, .temoin-card{
+.service-card{
+  flex:1 1 280px;
+  max-width:300px;
   background:#fff;
   border-radius:16px;
   border:1px solid #e8edf7;
   box-shadow:var(--shadow-sm);
-  padding:22px;
-  max-width:300px;
-  transition:0.3s;
+  overflow:hidden;
+  transition:.3s ease;
 }
-.step-card:hover, .temoin-card:hover{
-  transform:translateY(-5px);
+
+.service-card img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+}
+
+.service-card h3{
+  color:var(--accent-blue);
+  font-size:1.08rem;
+  margin:16px 0 6px;
+}
+
+.service-card p{
+  color:#4a5468;
+  padding:0 18px 22px;
+}
+
+.service-card:hover{
+  transform:translateY(-6px);
+  box-shadow:var(--shadow-md);
+}
+
+/* ====================================
+   🔶 SECTION : IMPLANTATIONS
+==================================== */
+
+.carte-villes{
+  text-align:center;
+  padding:46px 20px 66px;
+  background:#fff;
+  border-top:2px solid #f3f5fa;
+  border-bottom:2px solid rgba(255,140,66,.22);
+}
+
+.carte-villes h2{
+  color:var(--accent-blue);
+  font-size:1.7rem;
+  padding-left:12px;
+  border-left:6px solid var(--brand-orange);
+  margin-bottom:18px;
+}
+
+.carte-villes img{
+  width:100%;
+  max-width:820px;
+  border-radius:14px;
+  box-shadow:var(--shadow-md);
+}
+
+/* ====================================
+   🔶 SECTION : NOS MISSIONS
+==================================== */
+
+.nos-missions{
+  background:#fff;
+  padding:50px 20px 56px;
+}
+
+.section-title{
+  color:var(--accent-blue);
+  font-size:1.6rem;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:20px;
+}
+
+.section-title .bar{
+  width:6px;
+  height:22px;
+  background:var(--brand-orange);
+  border-radius:6px;
+}
+
+.missions-card{
+  width:min(900px,92%);
+  background:#fff;
+  border-radius:16px;
+  border:1px solid #ecf1fb;
+  padding:22px;
+  box-shadow:var(--shadow-sm);
+  margin:auto;
+}
+
+.missions-card p{
+  margin-bottom:12px;
+  color:#3a4252;
+}
+
+/* ====================================
+   🔶 COMMENT ÇA MARCHE
+==================================== */
+
+.comment-ca-marche{
+  background:#fff;
+  padding:60px 20px;
+}
+
+.comment-ca-marche .container{
+  width:min(1100px,92%);
+}
+
+.steps-grid{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:20px;
+  margin-top:16px;
+}
+
+.step-card{
+  background:#fff;
+  border:1px solid #e9eef8;
+  border-radius:16px;
+  box-shadow:var(--shadow-sm);
+  padding:22px;
+  text-align:center;
+  max-width:260px;
+  flex:1 1 230px;
+  transition:.3s ease;
+}
+
+.step-card:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--shadow-md);
+}
+
+.numero{
+  background:var(--brand-orange);
+  color:#fff;
+  width:44px;
+  height:44px;
+  border-radius:999px;
+  line-height:44px;
+  margin:0 auto 10px;
+  font-weight:800;
+}
+
+.step-card h3{
+  color:var(--accent-blue);
+  margin-bottom:8px;
+}
+
+.step-card p{
+  color:#4a5468;
+}
+
+/* ====================================
+   🔶 TÉMOIGNAGES
+==================================== */
+
+.temoignages{
+  background:#fff;
+  padding:60px 20px 70px;
+}
+
+.temoignages .container{
+  width:min(1100px,92%);
+}
+
+.temoignages-grid{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:24px;
+}
+
+.temoin-card{
+  flex:1 1 300px;
+  max-width:340px;
+  background:#fff;
+  border:1px solid #e8edf7;
+  border-radius:16px;
+  padding:26px 22px;
+  box-shadow:var(--shadow-sm);
+  transition:.3s ease;
+  position:relative;
+}
+
+.temoin-card:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--shadow-md);
+}
+
+.quote-icon{
+  position:absolute;
+  top:-8px;
+  left:18px;
+  font-size:3rem;
+  color:var(--brand-orange);
+}
+
+.auteur{
+  display:block;
+  margin-top:12px;
+  text-align:right;
+  font-weight:700;
+  color:var(--accent-blue);
+}
+/* ====================================
+   🔶 FOOTER PREMIUM
+==================================== */
+
+.footer-pro{
+  text-align:center;
+  color:#fff;
+}
+
+.footer-top{
+  background:rgba(30,58,138,.92);
+  backdrop-filter:blur(6px);
+  padding:40px 20px;
+}
+
+.footer-top h3{
+  color:var(--brand-orange);
+  font-size:1.4rem;
+  margin-bottom:10px;
+}
+
+.footer-top p{
+  color:#eef3fb;
+  margin:0 auto 18px;
+  max-width:900px;
+}
+
+.footer-actions{
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  margin-bottom:12px;
+}
+
+.footer-icon{
+  width:50px;
+  height:50px;
+  border-radius:999px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:var(--brand-orange);
+  color:#fff;
+  font-size:1.25rem;
+  box-shadow:0 6px 16px rgba(255,140,66,.28);
+  transition:.2s ease;
+}
+
+.footer-icon:hover{
+  transform:translateY(-3px);
+  background:#ffa25a;
+}
+
+.footer-line{
+  width:90px;
+  margin:14px auto;
+  border:1px solid rgba(255,255,255,.35);
+}
+
+.footer-slogan{
+  font-style:italic;
+}
+
+.footer-bottom{
+  background:rgba(255,140,66,.94);
+  padding:14px 10px;
+}
+
+.footer-bottom p{
+  margin:4px 0;
+  font-size:.96rem;
+}
+
+.footer-socials a{
+  color:#fff;
+  font-weight:700;
+}
+
+.footer-socials a:hover{
+  text-decoration:underline;
+}
+
+/* ====================================
+   🔶 ANIMATIONS GLOBALES
+==================================== */
+
+.fade-in{
+  opacity:0;
+  transform:translateY(36px);
+  transition:opacity .8s ease, transform .8s ease;
+}
+
+.fade-in.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* Animation utilisée pour le HERO */
+@keyframes fadeInHero{
+  from{
+    opacity:0;
+    transform:translateY(20px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* ====================================
+   🔶 RESPONSIVE DESIGN
+==================================== */
+
+@media (max-width:1080px){
+  .bloc-fixe{gap:26px;}
+  .texte-fixe{top:116px;}
+}
+
+@media (max-width:992px){
+  .bloc-fixe{
+    flex-direction:column;
+    padding:22px;
+  }
+  .texte-fixe{
+    position:relative;
+    top:0;
+    width:100%;
+  }
+  .zone-scroll{
+    padding:0;
+    max-height:none;
+  }
+}
+
+@media (max-width:768px){
+
+  .hero__content h2{
+    font-size:1.8rem;
+  }
+
+  .hero__content{
+    padding:20px;
+  }
+
+  .service-card{
+    max-width:100%;
+  }
+
+  .temoin-card{
+    max-width:100%;
+  }
+}
+
+@media (max-width:640px){
+
+  .btn-chip{
+    padding:6px 0;
+    font-size:.9rem;
+  }
+
+  .services-container{
+    gap:16px;
+  }
+}
+/* === Correction alignement horizontal NOS SERVICES === */
+.services-container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: nowrap;           /* 🔥 empêche la 3e carte de tomber en bas */
+  gap: 24px;
+}
+
+.service-card {
+  width: 32%;                  /* 🔥 force exactement 3 cartes sur la ligne */
+  min-width: 280px;            /* empêche la carte d’être trop petite */
+  max-width: 350px;
+
+  background: #fff;
+  border: 1px solid #e8edf7;
+  border-radius: 18px;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.05);
+
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+@media (max-width: 992px) {
+  .services-container {
+    flex-wrap: wrap;           /* 🔥 repasse en vertical sur petits écrans */
+  }
+  .service-card {
+    width: 100%;
+    max-width: 500px;
+  }
+}
+/* === NOS SERVICES — 3 cartes alignées, sans scroll horizontal === */
+
+.services-container {
+  display: flex;
+  flex-wrap: wrap;       /* 🔥 important */
+  justify-content: center;
+  align-items: stretch;
+  gap: 24px;
+  width: 100%;
+}
+
+.service-card {
+  flex: 1 1 calc(33.33% - 24px);   /* 🔥 alignement parfait */
+  max-width: 330px;
+  min-width: 260px;
+  background: #fff;
+  border: 1px solid #e8edf7;
+  border-radius: 16px;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.05);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform .3s, box-shadow .3s;
+}
+
+.service-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+@media (max-width: 992px) {
+  .service-card {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+/* === CORRECTION FINALE - NOS SERVICES ALIGNEES === */
+
+/* Agrandir la zone de droite */
+.zone-scroll {
+  width: 100%;
+}
+
+/* Container 3 cartes côte à côte */
+.services-container {
+  display: flex;
+  flex-wrap: nowrap; /* 🔥 Force les 3 cartes à rester sur la même ligne */
+  justify-content: center;
+  align-items: stretch;
+  gap: 24px;
+  overflow-x: hidden; /* 🔥 empêche le scroll horizontal */
+}
+
+/* Cartes */
+.service-card {
+  flex: 1 1 auto;
+  width: 30%;         /* 🔥 garantit 3 cartes */
+  max-width: 330px;
+  min-width: 280px;   /* 🔥 empêche de trop rétrécir */
+  background: #fff;
+  border: 1px solid #e8edf7;
+  border-radius: 16px;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.05);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Images */
+.service-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Responsive pour petit écran */
+@media (max-width: 992px) {
+  .services-container {
+    flex-wrap: wrap;
+  }
+  .service-card {
+    width: 100%;
+    max-width: 500px;
+  }
+}
+/* === Correction barre orange pour tous les titres === */
+
+.nos-services h2,
+.carte-villes h2,
+.nos-missions .section-title,
+.comment-ca-marche .section-title,
+.temoignages .section-title {
+  padding-left: 12px !important;
+  border-left: 6px solid var(--brand-orange) !important;
+  margin-bottom: 14px;
+}
+
+.section-title .bar {
+  display: none !important; /* 🔥 supprime les petites barres déplacées */
+}/* === Bouton Hero : Je cherche une entreprise === */
+
+.cta {
+  background: var(--brand-orange);
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(255,140,66,0.35);
+  transition: 0.3s ease;
+}
+
+.cta:hover {
+  background: #ff9a5f;
+  box-shadow: 0 10px 24px rgba(255,140,66,0.45);
+  transform: translateY(-2px);
+}
+
+/* === Uniformisation des titres + barre orange === */
+
+.nos-services h2,
+.carte-villes h2,
+.nos-missions .section-title,
+.comment-ca-marche .section-title,
+.temoignages .section-title,
+.entreprise-section h3 {
+    text-align: left !important;
+    padding-left: 12px !important;
+    border-left: 6px solid var(--brand-orange) !important;
+    margin-bottom: 18px;
+}
+
+/* Supprime les barres oranges décalées */
+.section-title .bar {
+    display: none !important;
+}
+/* === Correction images coupées (Cards) === */
+.service-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: contain !important;  /* PLUS DE COUPE */
+    background: #f9fafc;             /* fond propre */
+    padding: 6px;                     /* évite collage aux bords */
+    border-radius: 14px;
+}
+/* === Correction cartes Nos Services : élargies + plus de coupe === */
+
+.services-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 26px;
+}
+
+.service-card {
+    flex: 1 1 32%;               /* 🔥 élargit chaque carte */
+    max-width: 360px;            /* 🔥 360px au lieu de 300px */
+    min-width: 300px;            /* évite écrasement */
+    background: #fff;
+    border-radius: 16px;
+    border: 1px solid #e8edf7;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* --- PHOTO PLUS COUPÉE --- */
+.service-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;        /* 🔥 garde le style visuel */
+    object-position: center;  /* 🟠 recentre la photo */
+    border-bottom: 0;
+}
+
+/* --- TEXTE NON COUPÉ --- */
+.service-card h3,
+.service-card p {
+    white-space: normal;      /* 🔥 empêche coupe horizontale */
+    overflow: visible;        /* 🔥 empêche le texte coupé */
+    text-overflow: unset;     /* 🔥 désactive ... */
+}
+/* === Correction finale : cartes plus petites + alignées sur une ligne === */
+
+.services-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.service-card {
+    flex: 1 1 28%;          /* 🔥 permet 3 cartes alignées */
+    max-width: 300px;       /* 🔥 plus petit qu'avant : les 3 tiennent */
+    min-width: 260px;       /* évite trop petit */
+    background: #fff;
+    border-radius: 16px;
+    border: 1px solid #e8edf7;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* — PHOTO légèrement réduite — */
+.service-card img {
+    width: 100%;
+    height: 180px;          /* 🔥 au lieu de 220px — photo mieux cadrée */
+    object-fit: cover;
+    object-position: center;
+}
+
+/* — TEXTE stable — */
+.service-card h3,
+.service-card p {
+    overflow: visible;
+    white-space: normal;
+    text-overflow: unset;
+}
+/* === FIX FINAL : 3 petites cartes Nos Services alignées === */
+
+@media (min-width: 993px) {
+  .services-container {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: stretch !important;
+    flex-wrap: nowrap !important;    /* 🔒 les 3 restent sur UNE ligne */
+    gap: 18px !important;
+    overflow-x: hidden !important;   /* pas de scroll horizontal */
+  }
+
+  .service-card {
+    flex: 0 0 200px !important;      /* 🔥 largeur FIXE : 200px */
+    max-width: 200px !important;
+    min-width: 200px !important;
+    background: #fff;
+    border-radius: 16px;
+    border: 1px solid #e8edf7;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .service-card img {
+    width: 100% !important;
+    height: 140px !important;        /* 🔥 plus petite hauteur */
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .service-card h3 {
+    font-size: 0.95rem !important;
+    margin: 10px 0 4px;
+  }
+
+  .service-card p {
+    font-size: 0.9rem !important;
+    padding: 0 10px 14px;
+  }
+}
+
+/* Sur écran plus petit, on laisse les cartes prendre toute la largeur */
+@media (max-width: 992px) {
+  .services-container {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+  }
+  .service-card {
+    flex: 1 1 100% !important;
+    max-width: 500px !important;
+  }
+}

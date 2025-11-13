@@ -1004,3 +1004,244 @@ a{text-decoration:none;color:inherit;}
 .mobile-menu a:hover{
     background:#f7f7f7;
 }
+
+/* ============================
+   📱 CSS RESPONSIVE MOBILE
+   ============================ */
+@media (max-width: 768px) {
+
+  /* ----- HEADER / MENU ----- */
+  .header__inner {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 0;
+  }
+
+  .brand__logo {
+    height: 38px;
+  }
+
+  .brand__title {
+    font-size: 1.05rem;
+  }
+
+  /* Menu desktop caché */
+  .nav {
+    display: none;
+  }
+
+  /* Menu hamburger visible */
+  .hamburger {
+    display: block;
+    font-size: 28px;
+    cursor: pointer;
+    padding: 5px 12px;
+    color: #1f3b83;
+    z-index: 1001;
+  }
+
+  /* Menu mobile déroulant */
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    background: #fff;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 70%;
+    padding: 20px 15px;
+    border-left: 3px solid var(--brand-orange);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    z-index: 999;
+  }
+
+  .mobile-menu a {
+    padding: 12px 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1f3b83;
+    border-bottom: 1px solid #eee;
+  }
+
+  /* Langues */
+  .lang-switch {
+    font-size: 0.9rem;
+    gap: 4px;
+  }
+
+  /* ----- HERO ----- */
+  .hero {
+    height: 380px !important;  /* réduction hauteur */
+    background-position: center;
+  }
+
+  .hero__content {
+    width: 90%;
+    padding: 14px 18px;
+    border-radius: 12px;
+  }
+
+  .hero__content h2 {
+    font-size: 1.3rem;
+    line-height: 1.35;
+  }
+
+  .cta {
+    padding: 10px 18px;
+    font-size: 0.9rem;
+  }
+
+  /* ----- NOS SERVICES ----- */
+  .services-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .service-card {
+    width: 92% !important;
+    max-width: 92%;
+    min-height: auto;
+  }
+
+  .service-card img {
+    height: 150px;
+  }
+
+  /* ----- BLOC GAUCHE / DROITE ----- */
+  .bloc-fixe {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .texte-fixe {
+    width: 100%;
+    position: relative;
+    top: 0;
+  }
+
+  .zone-scroll {
+    width: 100%;
+    padding: 0;
+    height: auto;
+  }
+
+  /* ----- COMMENT ÇA MARCHE ----- */
+  .step-card {
+    max-width: 90%;
+  }
+
+  /* ----- TÉMOIGNAGES ----- */
+  .temoin-card {
+    max-width: 90%;
+  }
+
+  /* ----- FOOTER ----- */
+  .footer-top {
+    text-align: center;
+  }
+
+  .footer-actions {
+    flex-wrap: wrap;
+  }
+
+}
+
+/* =============================
+   📱 VERSION MOBILE
+   ============================= */
+@media (max-width: 768px) {
+
+  /* HEADER MOBILE */
+  .header {
+    padding: 6px 0;
+  }
+
+  .header__inner {
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  /* LOGO + TEXTE */
+  .brand {
+    gap: 4px;
+  }
+
+  .brand__logo {
+    height: 40px;
+  }
+
+  .brand__title {
+    font-size: 1.05rem;
+  }
+
+  /* LANG SWITCH (FR | ANG) */
+  .lang-switch {
+    font-size: 0.9rem;
+  }
+
+  .lang {
+    color: #1E3A8A !important; /* en bleu, neutre */
+  }
+
+  .lang.active {
+    color: #1E3A8A !important;
+  }
+
+  /* NAV — cacher menu desktop */
+  .nav {
+    display: none !important;
+  }
+
+  /* HAMBURGER à droite */
+  .hamburger {
+    position: absolute;
+    right: 12px;
+    top: 14px;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 2000;
+  }
+
+  /* MENU MOBILE */
+  .mobile-menu {
+    position: fixed;
+    top: 60px;
+    right: 0;
+    width: 70%;
+    background: white;
+    padding: 20px;
+    box-shadow: -2px 0 15px rgba(0,0,0,0.15);
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 1500;
+  }
+
+  .mobile-menu a {
+    font-size: 1.1rem;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+  }
+
+  /* HERO */
+  .hero {
+    --hero-height: 430px !important; /* hauteur réduite */
+  }
+
+  .hero__content h2 {
+    font-size: 1.7rem; /* plus petit pour éviter le bloc vertical */
+    line-height: 1.25;
+    max-width: 260px;
+    margin: auto;
+  }
+
+  /* CTA MOBILE */
+  .cta {
+    font-size: 1rem;
+    padding: 12px 20px;
+    width: 75%;
+    border-radius: 16px;
+    white-space: normal; /* permet de tenir sur 2 lignes */
+    margin-top: 18px;
+  }
+}

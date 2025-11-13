@@ -931,3 +931,76 @@ a{text-decoration:none;color:inherit;}
     max-width: 500px !important;
   }
 }
+
+/* === FIX MOBILE HEADER === */
+@media(max-width: 768px){
+
+    /* Réduit le header */
+    .header__inner{
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 10px 0;
+    }
+
+    /* Logo */
+    .brand__logo{
+        height: 38px;
+    }
+
+    /* Titre */
+    .brand__title{
+        font-size: 1.05rem;
+    }
+
+    /* On cache la navigation desktop */
+    .nav{
+        display:none;
+    }
+
+    /* FR | ANG réduit et à droite */
+    .lang-switch{
+        position:absolute;
+        top:14px;
+        right:14px;
+        font-size:0.85rem;
+        gap:4px;
+    }
+
+    /* Ajout du menu hamburger */
+    .hamburger{
+        display:block;
+        position:absolute;
+        top:14px;
+        left:14px;
+        font-size:28px;
+        color:#1f3b83;
+        cursor:pointer;
+        z-index:999;
+    }
+}
+/* MENU MOBILE DÉROULANT */
+.mobile-menu{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100vh;
+    background:white;
+    padding-top:80px;
+    z-index:900;
+}
+
+.mobile-menu a{
+    display:block;
+    padding:18px;
+    font-size:1.2rem;
+    color:#1f3b83;
+    font-weight:700;
+    text-align:center;
+    border-bottom:1px solid #eee;
+}
+
+.mobile-menu a:hover{
+    background:#f7f7f7;
+}

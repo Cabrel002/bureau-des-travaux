@@ -1245,3 +1245,19 @@ a{text-decoration:none;color:inherit;}
     margin-top: 18px;
   }
 }
+/* Desktop = cacher hamburger */
+.hamburger {
+  display: none;
+}
+
+/* Mobile = afficher hamburger */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 6px; /* ancien 10px → on réduit */
+}

@@ -10,6 +10,15 @@
 <body>
   <!-- 🟦 HEADER MODERNE BILINGUE -->
 <header class="header">
+<div class="hamburger" onclick="toggleMenu()">☰</div>
+
+<div class="mobile-menu">
+    <a href="index.html">Accueil</a>
+    <a href="quisommesnous.html">Qui sommes-nous</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+</div>
+
   <div class="header__inner">
     <!-- 🔹 Logo -->
     <div class="brand">
@@ -237,6 +246,12 @@
     }, { threshold: 0.2 });
     faders.forEach(fader => observer.observe(fader));
   </script>
+<script>
+function toggleMenu(){
+    const menu = document.querySelector('.mobile-menu');
+    menu.style.display = menu.style.display === "block" ? "none" : "block";
+}
+</script>
 
 </body>
 </html>
